@@ -13,10 +13,17 @@
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 申明spring mvc的前端控制器配置名称及路径 -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <!-- 配置在启动容器时默认加载该dispatcher -->
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <!-- 配置默认拦截所有请求 -->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.form</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
